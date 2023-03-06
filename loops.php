@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 <?php
 
 //Here is an array :
@@ -42,14 +52,57 @@ foreach ($startup as $name) {
 };
 
 /*-Create an array containing at least 10 countries.
-Then, generate the html that will render a select box inside an html form (see mockup below).
+Then, generate the html that will render a select box inside an html form.
 Of course, a loop will be useful...*/
 
-$countries = array('Belgium', 'France', 'Netherlands', 'Luxembourg', 'Germany', 'Switzerland', 'Italy',
- 'Spain', 'Portugal', 'Greece');
+/*function countryOptions() { 
+    $countries = array('Belgium', 'France', 'Germany', 'Greece', 'Italy', 'Luxembourg', 'Netherlands', 
+'Portugal', 'Spain', 'Switzerland');
+    foreach ($countries as $country) {
+    echo '<option value="' . $country . '">' . $country . '</option>';
+}};
+
+$countryOptions = countryOptions();
+
+$selectCountries = '<form>' . '<select name="">' . '<option value="">Choose a country</option>' .
+'</select>' . '</form>';
+
+echo $selectCountries;*/
+
+$countries = array('Belgium', 'France', 'Germany', 'Greece', 'Italy', 'Luxembourg', 'Netherlands', 
+'Portugal', 'Spain', 'Switzerland');
+
+echo "<form><select name=''><option value=''>Choose a country</option>";
+foreach ($countries as $country) {
+    echo '<option value="' . $country . '">' . $country . '</option>';
+};
+echo "</select></form>";
 
 
 /*-Now, edit your array so that it becomes an associative array:
 use the country ISO code as array key, and the country name as value.
 -Now, adapt your html select box so that the country ISO code becomes the <option> element value, 
 and the country name be the visible part of the <option>.*/
+
+$countriesWithKeys = array(
+    'BEL' => 'Belgium',
+    'FRA' => 'France',
+    'DEU' => 'Germany',
+    'GRC' => 'Greece',
+    'ITA' => 'Italy',
+    'LUX' => 'Luxembourg',
+    'NLD' => 'Netherlands',
+    'PRT' => 'Portugal',
+    'ESP' => 'Spain',
+    'CHE' => 'Switzerland'
+);
+echo "<form><select name=''><option value=''>Choose a country</option>";
+foreach ($countries as $key => $value) {
+    echo '<option value="' . $key . '">' . $value . '</option>';
+};
+echo "</select></form>";
+
+?>
+
+</body>
+</html>
